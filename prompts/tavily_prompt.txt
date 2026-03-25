@@ -1,0 +1,10 @@
+"""
+    Use this tool whenever the user asks for:
+    - latest news
+    - current events
+    - sports scores
+    - real-time information
+    - anything after 2023
+
+    Always use this tool when user ask something that requires extra knowlwdge.
+    """
