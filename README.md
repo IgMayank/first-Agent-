@@ -21,7 +21,7 @@
 
 # 🚀 What is Mini GPT?
 
-**Mini GPT** is a modular AI assistant built from scratch using Python.  
+**Mini GPT** is Developed independently in Python by integrating LLM APIs, tools, retrieval pipelines, and automation workflows.  
 It combines language models with tools so it can perform useful actions instead of only generating text.
 
 ### Current Capabilities
