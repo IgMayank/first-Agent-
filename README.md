@@ -1,92 +1,92 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=240&section=header&text=FirstAgent&fontSize=48&fontColor=ffffff&animation=fadeIn"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=240&section=header&text=Mini%20GPT&fontSize=48&fontColor=ffffff&animation=fadeIn"/>
 </p>
 
-<h1 align="center">🤖 FirstAgent</h1>
+<h1 align="center">🤖 Mini GPT</h1>
 
 <p align="center">
-  Autonomous AI Assistant with Tools, Memory, Search, RAG & Real-World Actions
+  Tool-Enabled AI Assistant with Search, Memory, RAG & Real-World Actions
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Groq-Llama%203.3-orange?style=for-the-badge">
   <img src="https://img.shields.io/badge/Ollama-Local%20LLMs-green?style=for-the-badge">
-  <img src="https://img.shields.io/badge/RAG-HuggingFace-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Memory-Enabled-success?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Status-Building-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/OpenRouter-Enabled-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/RAG-HuggingFace-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Status-Active-red?style=for-the-badge">
 </p>
 
 ---
 
-# 🚀 What is FirstAgent?
+# 🚀 What is Mini GPT?
 
-**FirstAgent** is a modular AI assistant built completely from scratch that can:
+**Mini GPT** is a modular AI assistant built from scratch using Python.  
+It combines language models with tools so it can perform useful actions instead of only generating text.
 
-- 🖥️ Open desktop applications
-- 🌐 Search the web using DuckDuckGo
-- 📄 Answer questions from custom documents using RAG
-- 📅 Create reminders/events in Google Calendar
-- 🧠 Remember recent conversation context
-- 🤖 Decide which tool to use dynamically
-- ⚡ Switch between Groq / OpenRouter / Ollama models
+### Current Capabilities
 
-This is not a simple chatbot.
-
-This is an **action-capable AI assistant**.
+- 🖥️ Open desktop applications  
+- 🌐 Search the web using DuckDuckGo  
+- 📄 Answer questions from private documents using RAG  
+- 📅 Create reminders/events in Google Calendar  
+- 🧠 Maintain short-term conversation memory  
+- 🤖 Use tools based on user intent  
+- ⚡ Supports Groq, OpenRouter, and Ollama backends  
 
 ---
 
 # 🔥 Why This Project Stands Out
 
-Most beginner AI projects are:
+Most beginner AI projects are simple chatbots.
 
-- ❌ Just wrappers around ChatGPT APIs
-- ❌ No tools
-- ❌ No memory
-- ❌ No real-world actions
-- ❌ No architecture thinking
+**Mini GPT** goes further by implementing:
 
-**FirstAgent solves that by implementing:**
+- ✅ Tool calling workflows  
+- ✅ Real-world task execution  
+- ✅ Search + document retrieval  
+- ✅ Memory-aware conversations  
+- ✅ Multiple model provider support  
+- ✅ Modular project structure  
 
-- ✅ Tool Calling Logic
-- ✅ Search + Automation + RAG
-- ✅ Multi-model support
-- ✅ Short-term memory
-- ✅ Modular scalable codebase
-- ✅ Real utility workflows
+This project focuses on building a practical assistant system rather than a basic chatbot UI.
 
 ---
 
 # 🧠 System Architecture
 
 ```text
-User Command
+User Input
    ↓
-Main Agent (LLM Brain)
+Mini GPT Core Agent
    ↓
 Intent Understanding
    ↓
-Chooses Best Tool
+Select Appropriate Tool
    ↓
 
 ┌────────────────────────────┐
 │ 🔍 Web Search Tool        │
 │ 🖥️ Open Apps Tool        │
 │ 📄 RAG Document Tool      │
-│ 📅 Calendar Reminder Tool │
-│ 🧠 Memory Context Tool    │
+│ 📅 Calendar Tool          │
+│ 🧠 Memory Context         │
 └────────────────────────────┘
 
    ↓
-Tool Executes Task
+Tool Result Returned
    ↓
-LLM Generates Final Response
+LLM Generates Response
    ↓
-User Gets Result
+Final Output to User
+
+
+--
 
 
 ⚙️ Current Capabilities
+
+
 🔹 Open Applications
 
 Examples:
@@ -144,4 +144,3 @@ Search           : 	   DuckDuckGo
 RAG	           :   HuggingFace + Vector Store
 Automation	     :    Python + OS Commands
 Memory	        :   Short-Term Context Memory
-
