@@ -1,85 +1,147 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:141E30,100:243B55&height=220&section=header&text=FirstAgent&fontSize=42&fontColor=ffffff&animation=fadeIn"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=240&section=header&text=FirstAgent&fontSize=48&fontColor=ffffff&animation=fadeIn"/>
 </p>
 
 <h1 align="center">🤖 FirstAgent</h1>
 
 <p align="center">
-  Multi-Tool AI Assistant with Search, RAG, App Automation & Task Handling
+  Autonomous AI Assistant with Tools, Memory, Search, RAG & Real-World Actions
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/LLM-Groq-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Framework-LangChain-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Agentic-AI-green?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Groq-Llama%203.3-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Ollama-Local%20LLMs-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/RAG-HuggingFace-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Memory-Enabled-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Status-Building-red?style=for-the-badge">
 </p>
 
 ---
 
-## 🔥 Overview
+# 🚀 What is FirstAgent?
 
-**FirstAgent** is a modular AI assistant that combines multiple tools into one intelligent system.
+**FirstAgent** is a modular AI assistant built completely from scratch that can:
 
-It can:
+- 🖥️ Open desktop applications
+- 🌐 Search the web using DuckDuckGo
+- 📄 Answer questions from custom documents using RAG
+- 📅 Create reminders/events in Google Calendar
+- 🧠 Remember recent conversation context
+- 🤖 Decide which tool to use dynamically
+- ⚡ Switch between Groq / OpenRouter / Ollama models
 
-- 🔍 Search the web for real-time information  
-- 📄 Retrieve answers from custom documents using RAG  
-- 🖥️ Open desktop applications automatically  
-- 📅 Manage tasks / reminders  
-- 🤖 Route user requests to the correct tool dynamically  
+This is not a simple chatbot.
 
----
-
-## 🧠 Why This Project Matters
-
-Most beginner AI projects are just chatbots.
-
-**FirstAgent** goes beyond that by implementing:
-
-- ✅ Tool Calling Logic  
-- ✅ Multi-Agent Style Architecture  
-- ✅ Real Utility Automation  
-- ✅ Retrieval-Augmented Generation  
-- ✅ Task Execution Workflows  
-
-👉 Built to simulate real-world AI assistants.
+This is an **action-capable AI assistant**.
 
 ---
 
-## ⚙️ Core Capabilities
+# 🔥 Why This Project Stands Out
 
-### 🔹 Smart Query Routing
-Understands user intent and chooses the right tool.
+Most beginner AI projects are:
 
-### 🔹 Web Search Tool
-Fetches external information when needed.
+- ❌ Just wrappers around ChatGPT APIs
+- ❌ No tools
+- ❌ No memory
+- ❌ No real-world actions
+- ❌ No architecture thinking
 
-### 🔹 RAG Pipeline
-Uses your own documents (`PDF`, `TXT`, `CSV`) for grounded answers.
+**FirstAgent solves that by implementing:**
 
-### 🔹 Desktop Automation
-Launches local applications through commands.
-
-### 🔹 Task Management
-Handles scheduled / utility workflows.
+- ✅ Tool Calling Logic
+- ✅ Search + Automation + RAG
+- ✅ Multi-model support
+- ✅ Short-term memory
+- ✅ Modular scalable codebase
+- ✅ Real utility workflows
 
 ---
 
-## 🧠 System Architecture
+# 🧠 System Architecture
 
 ```text
-User Query
+User Command
    ↓
-Main Agent
+Main Agent (LLM Brain)
    ↓
-Intent Detection
+Intent Understanding
    ↓
-┌───────────────┬───────────────┬──────────────┬──────────────┐
-│ Web Search    │ RAG Tool      │ Open Apps    │ Task Manager │
-└───────────────┴───────────────┴──────────────┴──────────────┘
+Chooses Best Tool
    ↓
-Tool Output
+
+┌────────────────────────────┐
+│ 🔍 Web Search Tool        │
+│ 🖥️ Open Apps Tool        │
+│ 📄 RAG Document Tool      │
+│ 📅 Calendar Reminder Tool │
+│ 🧠 Memory Context Tool    │
+└────────────────────────────┘
+
    ↓
-LLM Response
+Tool Executes Task
+   ↓
+LLM Generates Final Response
+   ↓
+User Gets Result
+
+
+⚙️ Current Capabilities
+🔹 Open Applications
+
+Examples:
+
+Open Chrome
+Open VS Code
+Open Calculator
+
+🔹 Web Search
+
+Examples:
+
+Search latest AI news
+Who won yesterday's IPL match?
+Best Python roadmap 2026
+
+🔹 RAG over Documents
+
+Supports:
+
+PDF
+
+Examples:
+
+Summarize mayank.pdf
+
+
+🔹 Google Calendar Actions
+
+Examples:
+
+Create birthday event on 20 April
+
+
+🔹 Memory
+
+The assistant remembers recent conversation context for better follow-up responses.
+
+Example:
+
+User: summarize my pdf
+User: who is the author?
+
+
+🛠️ Tech Stack
+
+
+
+   Layer           	   Technology
+Core Language	  :          Python
+LLM APIs	        :      Groq / OpenRouter
+Local Models	  :          Ollama
+Framework	     :    LangChain / Custom Agents
+Search           : 	   DuckDuckGo
+RAG	           :   HuggingFace + Vector Store
+Automation	     :    Python + OS Commands
+Memory	        :   Short-Term Context Memory
+
