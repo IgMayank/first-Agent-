@@ -20,3 +20,4 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import InMemoryVectorStore
 from langgraph.checkpoint.memory import MemorySaver
+from langchain_groq import ChatGroq

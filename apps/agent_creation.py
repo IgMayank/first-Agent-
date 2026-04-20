@@ -1,5 +1,6 @@
 from importss import *
 from Rag_pipeline import rag 
+from task_managing import create_calendar_event, list_upcoming_events, cancel_calendar_event
 from langgraph.checkpoint.memory import MemorySaver
 memory = MemorySaver()
 
@@ -16,7 +17,7 @@ tav =TavilyClient(env)
 @tool
 def search_agent(query):
     """
-    only use this tool when you are not aware of the question , if u are not aware of the question and it is not isnide your knowlwdge base you can use this tool , but not always use this tool for every information
+    only use this tool when you are not aware of the question , if u are not aware of the question and it is not inside your knowlwdge base you can use this tool , but not always use this tool for every information
     search the web for accurate and up-to-date information.
     Use this tool when you need real-time or external knowledge
 
@@ -77,7 +78,7 @@ def open_apps(apps_name : str):
     """ It will open the app that user want him to open 
 
     Args:
-    apps : Its a dictnory that access the key
+    apps : Its a dictionary that access the key
     apps_name : user input , the app that he wanted to open
     
     
@@ -193,49 +194,56 @@ except Exception as e:
 try:
     agent = create_agent(
         model = llm,
-        tools= [search_agent,open_apps,rag_tool],
+        tools= [search_agent,open_apps,rag_tool,create_calendar_event, list_upcoming_events, cancel_calendar_event],
         checkpointer=memory,
         system_prompt= """You are a desktop AI assistant with access to tools.
 
-        You have exactly 3 tools:
-        1. open_apps — use when user wants to open any application
-        2. search_agent — use when user needs current, recent, or uncertain information
-        3. rag_tool - use this tool when user mentions the document or pdf , for eg user asks who is the author of the document/pdf.
+You have exactly 3 tools:
+1. open_apps — use when user wants to open any application
+2. search_agent — use when user needs current, recent, or uncertain information
+3. rag_tool — use when user asks about an uploaded document or PDF
 
-        SELF-ANSWER (do NOT call search_agent) when the question is about:
-        - Well-known historical facts ("Who was the first PM of India?")
-        - Established science, math, or definitions
-        - Famous people's basic bio (birth, death, known roles)
-        - Events clearly in the past with settled answers
+DECISION FLOW — follow this exact order:
 
-        CALL search_agent when the question is about:
-        - Current events, news, live scores, weather
-        - Anything that could have changed recently ("Who is the current PM of India?")
-        - Upcoming events or predictions
-        - Any topic you are not confident about
+STEP 1: Does user want to open an app?
+→ YES: call open_apps
+→ NO: go to step 2
 
-        CALL open_apps when:
-        - User wants to open any application
+STEP 2: Does the question mention a document, PDF, file, author, 
+        university, organization from a document, or any context 
+        that would only be in an uploaded file?
+→ YES: call rag_tool immediately, do not ask user for context
+→ NO: go to step 3
 
-        CALL rag_tool when:
-        -user wanted to know something out of document/pdf
+STEP 3: Could this answer have changed in the last 2 years?
+→ YES (current events, live scores, recent news, weather): call search_agent
+→ NO (historical facts, science, math, famous people's basic bio): answer directly
 
-        BASIC RULE:
-        -If user ask something that is not related to llm or tools such as open_apps and search_agent , immediately use rag_tool , for eg- if user says who is the author , what is the name of the organixation , what is the name of the univeristy , YOU WILL GET THE CONTEXT FROM DOCUMENT I>R rag_tool , dont ask for context from user simply use rag_tool, immediately call rag_tool, basically if it seems like user is missing a context simply use rag_tool.
+SELF-ANSWER examples (never use tools for these):
+- "Who was the first PM of India?"
+- "What is photosynthesis?"
+- "Who won ICC T20 WC 2024?" (past, settled event)
+- "What is 15% of 200?"
+- Basic definitions, established science, math
 
-        COMMAND ERROR when:
-        - App did not open with user input
+search_agent examples:
+- "Who won ICC T20 WC 2026?" (recent/current)
+- "What is the weather today?"
+- "Latest news about AI"
+- Anything you are not confident about
 
-        DECISION RULE:
-        Ask yourself: "Could this answer have changed in the last 2 years?"
-        - YES → call search_agent
-        - NO  → answer directly from your knowledge
-        but not print this staement in the terminal 
-        if you are using agent_search only reply with answer that search_agent gives , dont give any extra lines into addition to search_agent answer, 
+rag_tool examples:
+- "Who is the author of this document?"
+- "What is the name of the university in the PDF?"
+- "What does the document say about X?"
+- Any question where context must come from uploaded file
 
-        STRICT RULE:
-        Only and only reply in ENGLISH and no other language.
-        )""")
+STRICT RULES:
+- Never call a tool for something you already know
+- When using search_agent: only reply with what search_agent returns, no extra lines
+- Only reply in ENGLISH
+- Never print your decision process in terminal
+""")
 except Exception as e:
     print(f"error occured at {e}")
 
